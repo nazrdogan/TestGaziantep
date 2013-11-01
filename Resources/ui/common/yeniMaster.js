@@ -1,5 +1,5 @@
 //Master View Component Constructor
-function MasterView() {
+function MasterView2() {
 	//create object instance, parasitic subclass of Observable
 	var self = Ti.UI.createView({
 		backgroundColor:'white'
@@ -7,7 +7,7 @@ function MasterView() {
 	
 	//some dummy data for our table view
 	var tableData = [
-		{title:'Genel', price:'1.25', hasChild:true, color: '#000'},
+		{title:'ELMA', price:'1.25', hasChild:true, color: '#000'},
 		{title:'Grapes', price:'1.50', hasChild:true, color: '#000'},
 		{title:'Oranges', price:'2.50', hasChild:true, color: '#000'},
 		{title:'Bananas', price:'1.50', hasChild:true, color: '#000'},
@@ -22,6 +22,7 @@ function MasterView() {
 	
 	//add behavior
 	table.addEventListener('click', function(e) {
+		alert('test');
 		self.fireEvent('itemSelected', {
 			name:e.rowData.title,
 			price:e.rowData.price
@@ -31,4 +32,4 @@ function MasterView() {
 	return self;
 };
 
-module.exports = MasterView;
+module.exports = MasterView2;

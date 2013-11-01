@@ -1,7 +1,7 @@
 function DetailView1() {
 	
 	
-	var YeniMaster=require('ui/common/yeni');
+	var YeniMaster=require('ui/common/yeniMaster');
 	var self = Ti.UI.createView();
 	var yeniView=new YeniMaster();
 	var lbl = Ti.UI.createLabel({
@@ -12,7 +12,7 @@ function DetailView1() {
 	});
 	self.add(lbl);
 	
-	self.addEventListener('itemSelected', function(e) {
+	self.addEventListener('itemSelected1', function(e) {
 	//	lbl.text = e.name+': $'+e.price;
 	});
 	 self.add(yeniView);

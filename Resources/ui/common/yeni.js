@@ -1,7 +1,7 @@
 //Master View Component Constructor
 function MasterView1() {
 	
-		DetailView1 = require('ui/common/yeni');
+		DetailView1 = require('ui/common/yenidetail');
 		
 	//create object instance, parasitic subclass of Observable
 	var self = Ti.UI.createView({
@@ -10,7 +10,7 @@ function MasterView1() {
 	
 	//some dummy data for our table view
 	var tableData = [
-		{title:'Apples1', price:'1.25', hasChild:true, color: '#000'},
+		{title:'Apples23', price:'1.25', hasChild:true, color: '#000'},
 		{title:'Grapes', price:'1.50', hasChild:true, color: '#000'},
 		{title:'Oranges', price:'2.50', hasChild:true, color: '#000'},
 		{title:'Bananas', price:'1.50', hasChild:true, color: '#000'},
@@ -33,7 +33,7 @@ function MasterView1() {
 			backgroundColor:'#ffffff'
 		});
 		detailContainerWindow1.add(detailView1);
-		//detailView.fireEvent('itemSelected',e);
+		detailView1.fireEvent('itemSelected1',e);
 		detailContainerWindow1.open();
 
 	});
