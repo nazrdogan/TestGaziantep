@@ -5,28 +5,54 @@ function MasterView() {
 		backgroundColor:'white'
 	});
 	
-	//some dummy data for our table view
-	var tableData = [
-		{title:'Genel', price:'1.25', hasChild:true, color: '#000'},
-		{title:'Grapes', price:'1.50', hasChild:true, color: '#000'},
-		{title:'Oranges', price:'2.50', hasChild:true, color: '#000'},
-		{title:'Bananas', price:'1.50', hasChild:true, color: '#000'},
-		{title:'Pears', price:'1.40', hasChild:true, color: '#000'},
-		{title:'Kiwis', price:'1.00', hasChild:true, color: '#000'}
-	];
+	var AnaMenu=new Array('Genel Bilgiler','Akademik','Duyurular','Hastane','Foto Galeri','Video','İletişim');
+var  tableData=[];	
 	
+	for (var i=1; i<AnaMenu.length; i++){
+ 
+ var row = Ti.UI.createTableViewRow({
+    className:'forumEvent', // used to improve table performance
+    selectedBackgroundColor:'white',
+    rowIndex:i, // custom property, useful for determining the row during events
+    height:'80dp'
+  });
+ ClickEvent(row);
+   var imageAvatar = Ti.UI.createImageView({
+    image:'ui/common/download.jpeg',
+    left:'10dp',
+    backgroundColor:'red',
+    width:'50dp', height:'50dp',
+  });
+  row.add(imageAvatar);
+ 
+  var labelUserName = Ti.UI.createLabel({
+    color:'#576996',
+    font:{fontFamily:'Arial', fontSize:'20dp', fontWeight:'bold'},
+    text:AnaMenu[i],
+    left:'50dp', 
+    textAlign:'center',
+    width:'200dp', height: '30dp',
+  });
+  row.add(labelUserName);
+   tableData.push(row);
 	var table = Ti.UI.createTableView({
 		data:tableData
 	});
 	self.add(table);
 	
 	//add behavior
-	table.addEventListener('click', function(e) {
+	function ClickEvent(button){
+		button.addEventListener('click', function(e) {
+		//  alert(button.rowIndex);
 		self.fireEvent('itemSelected', {
 			name:e.rowData.title,
 			price:e.rowData.price
+			
 		});
-	});
+	});	
+	}
+		
+	}
 	
 	return self;
 };
